@@ -4,4 +4,5 @@ Timetable for VIKO EIF.
 * Learn to work with git system (https://git-scm.com/doc)
 * Create web sketch (https://moqups.com)
 * Design a SQL database (http://dbdesigner.net/)
+  ![alt tag](https://github.com/arturasryn/viko-eif-timetable/blob/master/assets/DbScheme.png)
 * Grow a beard (not required) (https://goo.gl/JHjln2)
