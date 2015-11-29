@@ -1,0 +1,4 @@
+C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\bin\Release\TimeTable.BL.dll
+C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\bin\Release\TimeTable.BL.pdb
+C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\obj\Release\TimeTable.BL.dll
+C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\obj\Release\TimeTable.BL.pdb

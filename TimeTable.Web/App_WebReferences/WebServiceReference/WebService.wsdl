@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCabinets">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCabinetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCabinetsResult" type="tns:ArrayOfCabinet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCabinet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cabinet" nillable="true" type="tns:Cabinet" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cabinet">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertCabinetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updateCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCabinetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="removeCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeCabinetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getGroups">
+        <s:complexType />
+      </s:element>
+      <s:element name="getGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGroupsResult" type="tns:ArrayOfGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Group" nillable="true" type="tns:Group" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Group">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="currentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updateCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="removeGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="removeGroupResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCabinetsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCabinets" />
+  </wsdl:message>
+  <wsdl:message name="getCabinetsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCabinetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:insertCabinet" />
+  </wsdl:message>
+  <wsdl:message name="insertCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:insertCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:updateCabinet" />
+  </wsdl:message>
+  <wsdl:message name="updateCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:updateCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:removeCabinet" />
+  </wsdl:message>
+  <wsdl:message name="removeCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:removeCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:getGroups" />
+  </wsdl:message>
+  <wsdl:message name="getGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:getGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:insertGroup" />
+  </wsdl:message>
+  <wsdl:message name="insertGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:insertGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:updateGroup" />
+  </wsdl:message>
+  <wsdl:message name="updateGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:updateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:removeGroup" />
+  </wsdl:message>
+  <wsdl:message name="removeGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:removeGroupResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCabinets">
+      <wsdl:input message="tns:getCabinetsSoapIn" />
+      <wsdl:output message="tns:getCabinetsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertCabinet">
+      <wsdl:input message="tns:insertCabinetSoapIn" />
+      <wsdl:output message="tns:insertCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCabinet">
+      <wsdl:input message="tns:updateCabinetSoapIn" />
+      <wsdl:output message="tns:updateCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCabinet">
+      <wsdl:input message="tns:removeCabinetSoapIn" />
+      <wsdl:output message="tns:removeCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGroups">
+      <wsdl:input message="tns:getGroupsSoapIn" />
+      <wsdl:output message="tns:getGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertGroup">
+      <wsdl:input message="tns:insertGroupSoapIn" />
+      <wsdl:output message="tns:insertGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateGroup">
+      <wsdl:input message="tns:updateGroupSoapIn" />
+      <wsdl:output message="tns:updateGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="removeGroup">
+      <wsdl:input message="tns:removeGroupSoapIn" />
+      <wsdl:output message="tns:removeGroupSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://localhost/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCabinets">
+      <soap:operation soapAction="http://localhost/getCabinets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCabinet">
+      <soap:operation soapAction="http://localhost/insertCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCabinet">
+      <soap:operation soapAction="http://localhost/updateCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCabinet">
+      <soap:operation soapAction="http://localhost/removeCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroups">
+      <soap:operation soapAction="http://localhost/getGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertGroup">
+      <soap:operation soapAction="http://localhost/insertGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGroup">
+      <soap:operation soapAction="http://localhost/updateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeGroup">
+      <soap:operation soapAction="http://localhost/removeGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://localhost/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCabinets">
+      <soap12:operation soapAction="http://localhost/getCabinets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCabinet">
+      <soap12:operation soapAction="http://localhost/insertCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCabinet">
+      <soap12:operation soapAction="http://localhost/updateCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCabinet">
+      <soap12:operation soapAction="http://localhost/removeCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroups">
+      <soap12:operation soapAction="http://localhost/getGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertGroup">
+      <soap12:operation soapAction="http://localhost/insertGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateGroup">
+      <soap12:operation soapAction="http://localhost/updateGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeGroup">
+      <soap12:operation soapAction="http://localhost/removeGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:61243/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:61243/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

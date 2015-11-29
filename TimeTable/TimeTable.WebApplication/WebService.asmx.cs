@@ -37,10 +37,12 @@ namespace TimeTable.WebApplication
             return "Hello World";
         }
 
+        #region Cabinet methods
         [WebMethod]
         public List<Cabinet> getCabinets()
         {
-            return Database.getCabinets();
+            List<Cabinet> list = Database.getCabinets();
+            return list;
         }
         [WebMethod]
         public void insertCabinet(string code)
@@ -57,5 +59,30 @@ namespace TimeTable.WebApplication
         {
             Database.removeCabinet(code);
         }
+        #endregion
+        #region Group methods
+        [WebMethod]
+        public List<Group> getGroups()
+        {
+            List<Group> list = Database.getGroups();
+            if (list == null) throw new Exception("Groups list empty");
+            return list;
+        }
+        [WebMethod]
+        public void insertGroup(string code, string title)
+        {
+            Database.insertGroup(code, title);
+        }
+        [WebMethod]
+        public void updateGroup(string currentCode, string updateCode, string title)
+        {
+            Database.updateGroup(currentCode, updateCode, title);
+        }
+        [WebMethod]
+        public void removeGroup(string code)
+        {
+            Database.removeGroup(code);
+        }
+        #endregion
     }
 }
