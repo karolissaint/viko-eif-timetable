@@ -9,3 +9,6 @@ Timetable for VIKO EIF.
  * Database Backup - https://github.com/arturasryn/viko-eif-timetable/blob/master/assets/timeTableDb.bak
 * Create Web service
 * Grow a beard (not required) (https://goo.gl/JHjln2)
+## Work status:
+* Web page - https://github.com/arturasryn/viko-eif-timetable/blob/master/assets/headerScreenshot.png
+* Web service - https://github.com/arturasryn/viko-eif-timetable/blob/master/assets/webServiceScreenshot.png
