@@ -12,10 +12,24 @@ a:hover {
     text-decoration: none;
     color: #fff;
 }
+#top-bar {
+    padding: 1px 0;
+    background: #808080;
+    text-align:right;
+}
+#top-bar input[type="submit"] {
+    background: none;
+    border: none;
+    color: #fff;
+}
+#top-bar input[type="submit"]:hover {
+    text-decoration: underline;
+}
 #header {
     background-color: #000000;
     padding: 10px 0;
 }
+#login h1,
 #header h1 {
     color: #fff;
     font-size: 24px;

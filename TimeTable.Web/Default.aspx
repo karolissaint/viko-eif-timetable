@@ -12,7 +12,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+    <section id="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1 pull-right">
+                     <asp:Button ID="adminButton" runat="server" Text="Admin" OnClientClick="window.open('Login.aspx', 'VIKO EIF TimeTable Log In');" />
+                </div>   
+            </div>
+        </div>
+    </section>
     <section id="header">
         <div class="container">
             <div class="row">

@@ -27,6 +27,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TimeTable.Web", "..\TimeTab
 		VWDPort = "50827"
 		SlnRelativePath = "..\TimeTable.Web\"
 	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{A8328F4E-2839-4D67-89E5-66200783C784} = {A8328F4E-2839-4D67-89E5-66200783C784}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

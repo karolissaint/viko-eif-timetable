@@ -2,68 +2,6 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
-      <s:element name="HelloWorld">
-        <s:complexType />
-      </s:element>
-      <s:element name="HelloWorldResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="getCabinets">
-        <s:complexType />
-      </s:element>
-      <s:element name="getCabinetsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="getCabinetsResult" type="tns:ArrayOfCabinet" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="ArrayOfCabinet">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Cabinet" nillable="true" type="tns:Cabinet" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Cabinet">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
-        </s:sequence>
-      </s:complexType>
-      <s:element name="insertCabinet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="insertCabinetResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="updateCabinet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="currentCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="updateCode" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="updateCabinetResponse">
-        <s:complexType />
-      </s:element>
-      <s:element name="removeCabinet">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="removeCabinetResponse">
-        <s:complexType />
-      </s:element>
       <s:element name="getGroups">
         <s:complexType />
       </s:element>
@@ -95,13 +33,17 @@
         </s:complexType>
       </s:element>
       <s:element name="insertGroupResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="updateGroup">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="currentCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="updateCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -109,48 +51,122 @@
       <s:element name="updateGroupResponse">
         <s:complexType />
       </s:element>
-      <s:element name="removeGroup">
+      <s:element name="deleteGroup">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="removeGroupResponse">
+      <s:element name="deleteGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSubGroups">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSubGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSubGroupsResult" type="tns:ArrayOfSubGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSubGroup">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SubGroup" nillable="true" type="tns:SubGroup" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SubGroup">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertSubGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertSubGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateSubGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateSubGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="deleteSubGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteSubGroupResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getWeeks">
+        <s:complexType />
+      </s:element>
+      <s:element name="getWeeksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWeeksResult" type="tns:ArrayOfWeek" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWeek">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Week" nillable="true" type="tns:Week" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Week">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="insertWeek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertWeekResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="updateWeek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateWeekResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="deleteWeek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteWeekResponse">
         <s:complexType />
       </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
-  </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
-  </wsdl:message>
-  <wsdl:message name="getCabinetsSoapIn">
-    <wsdl:part name="parameters" element="tns:getCabinets" />
-  </wsdl:message>
-  <wsdl:message name="getCabinetsSoapOut">
-    <wsdl:part name="parameters" element="tns:getCabinetsResponse" />
-  </wsdl:message>
-  <wsdl:message name="insertCabinetSoapIn">
-    <wsdl:part name="parameters" element="tns:insertCabinet" />
-  </wsdl:message>
-  <wsdl:message name="insertCabinetSoapOut">
-    <wsdl:part name="parameters" element="tns:insertCabinetResponse" />
-  </wsdl:message>
-  <wsdl:message name="updateCabinetSoapIn">
-    <wsdl:part name="parameters" element="tns:updateCabinet" />
-  </wsdl:message>
-  <wsdl:message name="updateCabinetSoapOut">
-    <wsdl:part name="parameters" element="tns:updateCabinetResponse" />
-  </wsdl:message>
-  <wsdl:message name="removeCabinetSoapIn">
-    <wsdl:part name="parameters" element="tns:removeCabinet" />
-  </wsdl:message>
-  <wsdl:message name="removeCabinetSoapOut">
-    <wsdl:part name="parameters" element="tns:removeCabinetResponse" />
-  </wsdl:message>
   <wsdl:message name="getGroupsSoapIn">
     <wsdl:part name="parameters" element="tns:getGroups" />
   </wsdl:message>
@@ -169,33 +185,61 @@
   <wsdl:message name="updateGroupSoapOut">
     <wsdl:part name="parameters" element="tns:updateGroupResponse" />
   </wsdl:message>
-  <wsdl:message name="removeGroupSoapIn">
-    <wsdl:part name="parameters" element="tns:removeGroup" />
+  <wsdl:message name="deleteGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteGroup" />
   </wsdl:message>
-  <wsdl:message name="removeGroupSoapOut">
-    <wsdl:part name="parameters" element="tns:removeGroupResponse" />
+  <wsdl:message name="deleteGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSubGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:getSubGroups" />
+  </wsdl:message>
+  <wsdl:message name="getSubGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:getSubGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertSubGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:insertSubGroup" />
+  </wsdl:message>
+  <wsdl:message name="insertSubGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:insertSubGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateSubGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:updateSubGroup" />
+  </wsdl:message>
+  <wsdl:message name="updateSubGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:updateSubGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteSubGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteSubGroup" />
+  </wsdl:message>
+  <wsdl:message name="deleteSubGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteSubGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWeeksSoapIn">
+    <wsdl:part name="parameters" element="tns:getWeeks" />
+  </wsdl:message>
+  <wsdl:message name="getWeeksSoapOut">
+    <wsdl:part name="parameters" element="tns:getWeeksResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertWeekSoapIn">
+    <wsdl:part name="parameters" element="tns:insertWeek" />
+  </wsdl:message>
+  <wsdl:message name="insertWeekSoapOut">
+    <wsdl:part name="parameters" element="tns:insertWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateWeekSoapIn">
+    <wsdl:part name="parameters" element="tns:updateWeek" />
+  </wsdl:message>
+  <wsdl:message name="updateWeekSoapOut">
+    <wsdl:part name="parameters" element="tns:updateWeekResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteWeekSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteWeek" />
+  </wsdl:message>
+  <wsdl:message name="deleteWeekSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteWeekResponse" />
   </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="getCabinets">
-      <wsdl:input message="tns:getCabinetsSoapIn" />
-      <wsdl:output message="tns:getCabinetsSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="insertCabinet">
-      <wsdl:input message="tns:insertCabinetSoapIn" />
-      <wsdl:output message="tns:insertCabinetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="updateCabinet">
-      <wsdl:input message="tns:updateCabinetSoapIn" />
-      <wsdl:output message="tns:updateCabinetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="removeCabinet">
-      <wsdl:input message="tns:removeCabinetSoapIn" />
-      <wsdl:output message="tns:removeCabinetSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="getGroups">
       <wsdl:input message="tns:getGroupsSoapIn" />
       <wsdl:output message="tns:getGroupsSoapOut" />
@@ -208,58 +252,45 @@
       <wsdl:input message="tns:updateGroupSoapIn" />
       <wsdl:output message="tns:updateGroupSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="removeGroup">
-      <wsdl:input message="tns:removeGroupSoapIn" />
-      <wsdl:output message="tns:removeGroupSoapOut" />
+    <wsdl:operation name="deleteGroup">
+      <wsdl:input message="tns:deleteGroupSoapIn" />
+      <wsdl:output message="tns:deleteGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSubGroups">
+      <wsdl:input message="tns:getSubGroupsSoapIn" />
+      <wsdl:output message="tns:getSubGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertSubGroup">
+      <wsdl:input message="tns:insertSubGroupSoapIn" />
+      <wsdl:output message="tns:insertSubGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateSubGroup">
+      <wsdl:input message="tns:updateSubGroupSoapIn" />
+      <wsdl:output message="tns:updateSubGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteSubGroup">
+      <wsdl:input message="tns:deleteSubGroupSoapIn" />
+      <wsdl:output message="tns:deleteSubGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getWeeks">
+      <wsdl:input message="tns:getWeeksSoapIn" />
+      <wsdl:output message="tns:getWeeksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertWeek">
+      <wsdl:input message="tns:insertWeekSoapIn" />
+      <wsdl:output message="tns:insertWeekSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateWeek">
+      <wsdl:input message="tns:updateWeekSoapIn" />
+      <wsdl:output message="tns:updateWeekSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteWeek">
+      <wsdl:input message="tns:deleteWeekSoapIn" />
+      <wsdl:output message="tns:deleteWeekSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://localhost/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getCabinets">
-      <soap:operation soapAction="http://localhost/getCabinets" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="insertCabinet">
-      <soap:operation soapAction="http://localhost/insertCabinet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="updateCabinet">
-      <soap:operation soapAction="http://localhost/updateCabinet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="removeCabinet">
-      <soap:operation soapAction="http://localhost/removeCabinet" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getGroups">
       <soap:operation soapAction="http://localhost/getGroups" style="document" />
       <wsdl:input>
@@ -287,8 +318,80 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="removeGroup">
-      <soap:operation soapAction="http://localhost/removeGroup" style="document" />
+    <wsdl:operation name="deleteGroup">
+      <soap:operation soapAction="http://localhost/deleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubGroups">
+      <soap:operation soapAction="http://localhost/getSubGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertSubGroup">
+      <soap:operation soapAction="http://localhost/insertSubGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSubGroup">
+      <soap:operation soapAction="http://localhost/updateSubGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSubGroup">
+      <soap:operation soapAction="http://localhost/deleteSubGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWeeks">
+      <soap:operation soapAction="http://localhost/getWeeks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertWeek">
+      <soap:operation soapAction="http://localhost/insertWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateWeek">
+      <soap:operation soapAction="http://localhost/updateWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWeek">
+      <soap:operation soapAction="http://localhost/deleteWeek" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -299,51 +402,6 @@
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://localhost/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="getCabinets">
-      <soap12:operation soapAction="http://localhost/getCabinets" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="insertCabinet">
-      <soap12:operation soapAction="http://localhost/insertCabinet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="updateCabinet">
-      <soap12:operation soapAction="http://localhost/updateCabinet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="removeCabinet">
-      <soap12:operation soapAction="http://localhost/removeCabinet" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="getGroups">
       <soap12:operation soapAction="http://localhost/getGroups" style="document" />
       <wsdl:input>
@@ -371,8 +429,80 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="removeGroup">
-      <soap12:operation soapAction="http://localhost/removeGroup" style="document" />
+    <wsdl:operation name="deleteGroup">
+      <soap12:operation soapAction="http://localhost/deleteGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSubGroups">
+      <soap12:operation soapAction="http://localhost/getSubGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertSubGroup">
+      <soap12:operation soapAction="http://localhost/insertSubGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSubGroup">
+      <soap12:operation soapAction="http://localhost/updateSubGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSubGroup">
+      <soap12:operation soapAction="http://localhost/deleteSubGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWeeks">
+      <soap12:operation soapAction="http://localhost/getWeeks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertWeek">
+      <soap12:operation soapAction="http://localhost/insertWeek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateWeek">
+      <soap12:operation soapAction="http://localhost/updateWeek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteWeek">
+      <soap12:operation soapAction="http://localhost/deleteWeek" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
