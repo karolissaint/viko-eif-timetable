@@ -177,5 +177,33 @@ namespace TimeTable.WebApplication
             lecDataHelper.delete(id);
         }
         #endregion
+        #region Lecture Title methods
+        LectureTitleDataHelper lectureTitleDataHelper = new LectureTitleDataHelper();
+        [WebMethod]
+        public List<LectureTitle> getLectureTitles()
+        {
+            return lectureTitleDataHelper.getAll();
+        }
+        [WebMethod]
+        public LectureTitle getLectureTitle(string title)
+        {
+            return lectureTitleDataHelper.getByTitle(new LectureTitle() { title = title });
+        }
+        [WebMethod]
+        public string insertLectureTitle(string title)
+        {
+            return lectureTitleDataHelper.insert(new LectureTitle() { title = title });
+        }
+        [WebMethod]
+        public string updateLectureTitle(int id, string title)
+        {
+            return lectureTitleDataHelper.update(new LectureTitle() { id = id, title = title });
+        }
+        [WebMethod]
+        public void deleteLectureTitle(string title)
+        {
+            lectureTitleDataHelper.delete(title);
+        }
+        #endregion
     }
 }

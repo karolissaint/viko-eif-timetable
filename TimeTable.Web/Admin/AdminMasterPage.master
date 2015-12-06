@@ -59,6 +59,7 @@
                 <li><a href="WeeksPage.aspx"><i class="fa fa-calendar"></i>Weeks</a></li>
                 <li><a href="CabinetsPage.aspx"><i class="fa fa-home"></i>Cabinets</a></li>
                 <li><a href="LecturersPage.aspx"><i class="fa fa-graduation-cap"></i>Lecturers</a></li>
+                <li><a href="LectureTitlesPage.aspx"><i class="fa fa-tag"></i>Lecture titles</a></li>
             </ul>
         </div>
     </div>

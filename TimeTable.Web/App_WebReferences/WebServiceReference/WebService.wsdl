@@ -379,6 +379,80 @@
       <s:element name="deleteLecturerResponse">
         <s:complexType />
       </s:element>
+      <s:element name="getLectureTitles">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLectureTitlesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLectureTitlesResult" type="tns:ArrayOfLectureTitle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLectureTitle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LectureTitle" nillable="true" type="tns:LectureTitle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LectureTitle">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLectureTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLectureTitleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLectureTitleResult" type="tns:LectureTitle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertLectureTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertLectureTitleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertLectureTitleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateLectureTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateLectureTitleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateLectureTitleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteLectureTitle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteLectureTitleResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="getGroupsSoapIn">
@@ -531,6 +605,36 @@
   <wsdl:message name="deleteLecturerSoapOut">
     <wsdl:part name="parameters" element="tns:deleteLecturerResponse" />
   </wsdl:message>
+  <wsdl:message name="getLectureTitlesSoapIn">
+    <wsdl:part name="parameters" element="tns:getLectureTitles" />
+  </wsdl:message>
+  <wsdl:message name="getLectureTitlesSoapOut">
+    <wsdl:part name="parameters" element="tns:getLectureTitlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLectureTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:getLectureTitle" />
+  </wsdl:message>
+  <wsdl:message name="getLectureTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:getLectureTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertLectureTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:insertLectureTitle" />
+  </wsdl:message>
+  <wsdl:message name="insertLectureTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:insertLectureTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateLectureTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:updateLectureTitle" />
+  </wsdl:message>
+  <wsdl:message name="updateLectureTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:updateLectureTitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteLectureTitleSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteLectureTitle" />
+  </wsdl:message>
+  <wsdl:message name="deleteLectureTitleSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteLectureTitleResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="getGroups">
       <wsdl:input message="tns:getGroupsSoapIn" />
@@ -631,6 +735,26 @@
     <wsdl:operation name="deleteLecturer">
       <wsdl:input message="tns:deleteLecturerSoapIn" />
       <wsdl:output message="tns:deleteLecturerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLectureTitles">
+      <wsdl:input message="tns:getLectureTitlesSoapIn" />
+      <wsdl:output message="tns:getLectureTitlesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLectureTitle">
+      <wsdl:input message="tns:getLectureTitleSoapIn" />
+      <wsdl:output message="tns:getLectureTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertLectureTitle">
+      <wsdl:input message="tns:insertLectureTitleSoapIn" />
+      <wsdl:output message="tns:insertLectureTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateLectureTitle">
+      <wsdl:input message="tns:updateLectureTitleSoapIn" />
+      <wsdl:output message="tns:updateLectureTitleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteLectureTitle">
+      <wsdl:input message="tns:deleteLectureTitleSoapIn" />
+      <wsdl:output message="tns:deleteLectureTitleSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
@@ -860,6 +984,51 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getLectureTitles">
+      <soap:operation soapAction="http://localhost/getLectureTitles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLectureTitle">
+      <soap:operation soapAction="http://localhost/getLectureTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertLectureTitle">
+      <soap:operation soapAction="http://localhost/insertLectureTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLectureTitle">
+      <soap:operation soapAction="http://localhost/updateLectureTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLectureTitle">
+      <soap:operation soapAction="http://localhost/deleteLectureTitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1081,6 +1250,51 @@
     </wsdl:operation>
     <wsdl:operation name="deleteLecturer">
       <soap12:operation soapAction="http://localhost/deleteLecturer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLectureTitles">
+      <soap12:operation soapAction="http://localhost/getLectureTitles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLectureTitle">
+      <soap12:operation soapAction="http://localhost/getLectureTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertLectureTitle">
+      <soap12:operation soapAction="http://localhost/insertLectureTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLectureTitle">
+      <soap12:operation soapAction="http://localhost/updateLectureTitle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLectureTitle">
+      <soap12:operation soapAction="http://localhost/deleteLectureTitle" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

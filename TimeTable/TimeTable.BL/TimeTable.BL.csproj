@@ -47,6 +47,7 @@
     <Compile Include="DataHelpers\CabinetDataHelper.cs" />
     <Compile Include="DataHelpers\GroupDataHelper.cs" />
     <Compile Include="DataHelpers\LecturerDataHelper.cs" />
+    <Compile Include="DataHelpers\LectureTitleDataHelper.cs" />
     <Compile Include="DataHelpers\SubGroupDataHelper.cs" />
     <Compile Include="DataHelpers\WeekDataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
