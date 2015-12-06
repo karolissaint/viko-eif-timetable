@@ -1,0 +1,59 @@
+body {
+	background: #fff;
+	color: #5f6468;
+}
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+.navbar-brand span {
+    color: #fff;
+}
+.navbar-brand:hover span {
+    color: #999;
+}
+.nav-pills>li>a {
+    color: #fff;
+    border-radius: 0;
+}
+.nav-pills>li>a:hover {
+    color: #222;
+    background: #fff;
+}
+.nav-pills>li>a>i {
+    width: 30px;
+    font-size: 16px;
+}
+.sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #222;
+    border:none;
+    top: 50px;
+}
+.sidebar-nav {
+    position: absolute;
+    top: 5px;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.content-wrapper {
+    margin-top: 50px;
+    margin-left: 250px;
+}
+.breadcrumb {
+    border-radius: 0;
+}
+.content {
+    padding: 20px;
+}
+
+
+

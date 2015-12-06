@@ -52,9 +52,12 @@ namespace TimeTable.BL.DataHelpers
             this.selectAllCmd = Database.compileCommand(SELECT_ALL);
         }
 
-        public void insert(SubGroup subGroup)
+        public string insert(SubGroup subGroup)
         {
+            if (subGroup.title == "" || string.IsNullOrWhiteSpace(subGroup.title)) return "Subgroup title can't be empty!";
+            if (isExists(subGroup.title)) return "Subgroup already exist!";
             insert(subGroup.title);
+            return null;
         }
         private void insert(string title)
         {
@@ -63,9 +66,11 @@ namespace TimeTable.BL.DataHelpers
             insertCmd.ExecuteNonQuery();
         }
 
-        public void update(SubGroup subGroup)
+        public string update(SubGroup subGroup)
         {
+            if (subGroup.title == "" || string.IsNullOrWhiteSpace(subGroup.title)) return "Subgroup title can't be empty!";
             update(subGroup.id, subGroup.title);
+            return null;
         }
         private void update(int id, string title)
         {
@@ -95,7 +100,7 @@ namespace TimeTable.BL.DataHelpers
         {
             this.selectCmd.Parameters.Clear();
             SubGroup subGroup = new SubGroup();
-            this.selectCmd.Parameters.AddWithValue("@" + KEY_TITLE, KEY_TITLE);
+            this.selectCmd.Parameters.AddWithValue("@" + KEY_TITLE, title);
             using (SqlDataReader reader = this.selectCmd.ExecuteReader())
             {
                 if (reader.Read())

@@ -54,9 +54,13 @@ namespace TimeTable.BL.DataHelpers
             this.selectAllCmd = Database.compileCommand(SELECT_ALL);
         }
 
-        public void insert(Group group)
+        public string insert(Group group)
         {
+            if (group.code == "" || string.IsNullOrWhiteSpace(group.code)) return "Group code can't be empty!";
+            if (isExists(group.code)) return "Group already exists!";
+            if (group.title == "" || string.IsNullOrWhiteSpace(group.title)) return "Group title can't be empty!";
             insert(group.code, group.title);
+            return null;
         }
         private void insert(string code, string title)
         {
@@ -66,9 +70,12 @@ namespace TimeTable.BL.DataHelpers
             insertCmd.ExecuteNonQuery();
         }
 
-        public void update(Group group)
+        public string update(Group group)
         {
+            if (group.code == "" || string.IsNullOrWhiteSpace(group.code)) return "Group code can't be empty!";
+            if (group.title == "" || string.IsNullOrWhiteSpace(group.title)) return "Group title can't be empty!";
             update(group.id, group.code, group.title);
+            return null;
         }
         private void update(int id, string code, string title)
         {
@@ -91,18 +98,14 @@ namespace TimeTable.BL.DataHelpers
             Database.delete(GROUP_TABLE);
         }
 
-        public Group getByCode(Group group)
-        {
-            return getByCode(group.code);
-        }
-        private Group getByCode(string code)
+        public Group getByCode(string code)
         {
             this.selectCmd.Parameters.Clear();
             Group group = new Group();
-            this.selectCmd.Parameters.AddWithValue("@" + KEY_CODE, KEY_CODE);
+            this.selectCmd.Parameters.AddWithValue("@" + KEY_CODE, code);
             using (SqlDataReader reader = this.selectCmd.ExecuteReader())
             {
-                if(reader.Read())
+                if (reader.Read())
                 {
                     group.id = Convert.ToInt32(reader[0]);
                     group.title = reader[1].ToString();

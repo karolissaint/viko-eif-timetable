@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,7 +44,9 @@
   <ItemGroup>
     <Compile Include="Core.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="DataHelpers\CabinetDataHelper.cs" />
     <Compile Include="DataHelpers\GroupDataHelper.cs" />
+    <Compile Include="DataHelpers\LecturerDataHelper.cs" />
     <Compile Include="DataHelpers\SubGroupDataHelper.cs" />
     <Compile Include="DataHelpers\WeekDataHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

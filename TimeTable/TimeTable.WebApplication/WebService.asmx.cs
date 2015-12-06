@@ -39,67 +39,142 @@ namespace TimeTable.WebApplication
         [WebMethod]
         public List<Group> getGroups()
         {
-            return Database.getGroups();
+            return groupDataHelper.getAll();
+        }
+        [WebMethod]
+        public Group getGroup(string code)
+        {
+            return groupDataHelper.getByCode(code);
         }
         [WebMethod]
         public string insertGroup(string code, string title)
         {
-            if (code == "") throw new Exception("Group can't be empty!");
-            return Database.insertGroup(code, title);
+            return groupDataHelper.insert(new Group() { code = code, title = title });
         }
         [WebMethod]
-        public void updateGroup(int id, string code, string title)
+        public string updateGroup(int id, string code, string title)
         {
-            Database.updateGroup(id, code, title);
+            return groupDataHelper.update(new Group() { id = id, code = code, title = title });
         }
         [WebMethod]
         public void deleteGroup(string code)
         {
-            Database.deleteGroup(code);
+            groupDataHelper.delete(code);
         }
         #endregion
         #region SubGroup methods
+
+        SubGroupDataHelper subGroupDataHelper = new SubGroupDataHelper();
+
         [WebMethod]
         public List<SubGroup> getSubGroups()
         {
-            return Database.getSubGoups();
+            return subGroupDataHelper.getAll();
         }
         [WebMethod]
-        public void insertSubGroup(string title)
+        public SubGroup getSubGroup(string title)
         {
-            Database.insertSubGroup(title);
+            return subGroupDataHelper.getByTitle(new SubGroup() { title = title });
         }
         [WebMethod]
-        public void updateSubGroup(int id, string title)
+        public string insertSubGroup(string title)
         {
-            Database.updateSubGroup(id, title);
+            return subGroupDataHelper.insert(new SubGroup() { title = title });
+        }
+        [WebMethod]
+        public string updateSubGroup(int id, string title)
+        {
+            return subGroupDataHelper.update(new SubGroup() { id = id, title = title });
         }
         [WebMethod]
         public void deleteSubGroup(string title)
         {
-            Database.deleteSubGroup(title);
+            subGroupDataHelper.delete(title);
         }
         #endregion
         #region Week methods
+        WeekDataHelper weekDataHelper = new WeekDataHelper();
         [WebMethod]
         public List<Week> getWeeks()
         {
-            return Database.getWeeks();
+            return weekDataHelper.getAll();
         }
         [WebMethod]
-        public void insertWeek(string title)
+        public Week getWeek(string title)
         {
-            Database.insertWeek(title);
+            return weekDataHelper.getByTitle(new Week() { title = title });
         }
         [WebMethod]
-        public void updateWeek(int id, string title)
+        public string insertWeek(string title)
         {
-            Database.updateWeek(id, title);
+            return weekDataHelper.insert(new Week() { title = title });
+        }
+        [WebMethod]
+        public string updateWeek(int id, string title)
+        {
+            return weekDataHelper.update(new Week() { id = id, title = title });
         }
         [WebMethod]
         public void deleteWeek(string title)
         {
-            Database.deleteWeek(title);
+            weekDataHelper.delete(title);
+        }
+        #endregion
+        #region Cabinet methods
+        CabinetDataHelper cabDataHelper = new CabinetDataHelper();
+        [WebMethod]
+        public List<Cabinet> getCabinets()
+        {
+            return cabDataHelper.getAll();
+        }
+        [WebMethod]
+        public Cabinet getCabinet(string code)
+        {
+            return cabDataHelper.getByCode(new Cabinet() { code = code });
+        }
+        [WebMethod]
+        public string insertCabinet(string code)
+        {
+            return cabDataHelper.insert(new Cabinet() { code = code });
+        }
+        [WebMethod]
+        public string updateCabinet(int id, string code)
+        {
+            return cabDataHelper.update(new Cabinet() { id = id, code = code });
+        }
+        [WebMethod]
+        public void deleteCabinet(string code)
+        {
+            cabDataHelper.delete(code);
+        }
+        #endregion
+        #region Lecturer methods
+        LecturerDataHelper lecDataHelper = new LecturerDataHelper();
+
+        [WebMethod]
+        public List<Lecturer> getLecturers()
+        {
+            return lecDataHelper.getAll();
+        }
+        [WebMethod]
+        public Lecturer getLecturer(string name, string lastname)
+        {
+            return lecDataHelper.getByNameAndLastName(name, lastname);
+        }
+        [WebMethod]
+        public string insertLecturer(string name, string lastname)
+        {
+            return lecDataHelper.insert(new Lecturer() { name = name, lastname = lastname });
+        }
+        [WebMethod]
+        public string updateLecturer(int id, string name, string lastname)
+        {
+            return lecDataHelper.update(new Lecturer() { id = id, name = name, lastname = lastname });
+        }
+        [WebMethod]
+        public void deleteLecturer(int id)
+        {
+            lecDataHelper.delete(id);
         }
         #endregion
     }

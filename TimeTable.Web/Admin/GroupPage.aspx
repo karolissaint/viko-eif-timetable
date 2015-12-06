@@ -3,81 +3,74 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <title>VIKO EIF TimeTable Admin panel - Groups</title>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="PageTitle" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="breadcrumbContent" runat="server">
     Groups
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="PageContent" Runat="Server">
-			<div class="row-fluid sortable">
-				<div class="box span12">
-					<div class="box-header">
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Add Group</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
-						</div>
-					</div>
-					<div class="box-content">
-						<form class="form-horizontal">
-						  <fieldset>
-							<div class="control-group">
-							  <label class="control-label" for="typeahead">Group code (for example: "IR14B"): </label>
-							  <div class="controls">
-                                  <asp:TextBox ID="groupCodeTextBox" runat="server" CssClass="span6" MaxLength="5"></asp:TextBox>
-							  </div>
-							</div>
-					        <div class="control-group">
-							  <label class="control-label" for="typeahead">Group title (for example: "Išmanieji irenginiai"): </label>
-							  <div class="controls">
-                                  <asp:TextBox ID="groupTitleTextBox" runat="server" CssClass="span6" MaxLength="40"></asp:TextBox>
-							  </div>
-							</div>
-                              <asp:Label ID="newGroupStatusMessage" runat="server" Text=""></asp:Label>
-							<div class="form-actions">
-                              <asp:Button ID="insertButton" runat="server" Text="Add new group" CssClass="btn btn-primary" OnClick="insertButton_Click"/>
-							</div>
-						  </fieldset>
-						</form>   
-
-					</div>
-				</div><!--/span-->
-
-			</div><!--/row-->
-
-
-    			<div class="row-fluid sortable">
-				<div class="box span12">
-					<div class="box-header" data-original-title>
-						<h2><i class="halflings-icon edit"></i><span class="break"></span>Delete Group</h2>
-						<div class="box-icon">
-							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
-							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
-						</div>
-					</div>
-					<div class="box-content">
-						<form class="form-horizontal">
-						  <fieldset>
-							<div class="control-group">
-							  <label class="control-label" for="typeahead">Groups: </label>
-							  <div class="controls">
-                                  <asp:DropDownList id="groupsDropDownList" runat="server"></asp:DropDownList>
-							  </div>
-							</div>
-					        <div class="control-group">
-							  <label class="control-label" for="typeahead">Group title (for example: "Išmanieji irenginiai"): </label>
-							  <div class="controls">
-                                  <asp:TextBox ID="TextBox2" runat="server" CssClass="span6" MaxLength="40"></asp:TextBox>
-							  </div>
-							</div>
-							<div class="form-actions">
-                              <asp:Button ID="Button1" runat="server" Text="Add new group" CssClass="btn btn-primary" OnClick="insertButton_Click"/>
-							</div>
-						  </fieldset>
-						</form>   
-
-					</div>
-				</div><!--/span-->
-
-			</div><!--/row-->
+<div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add group</h3>
+      </div>
+      <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label">Group code</label>
+                <asp:TextBox ID="groupCodeTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Group title</label>
+                <asp:TextBox ID="groupTitleTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <asp:Label ID="addGroupHelperLabel" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="form-actions text-right pal">
+                <asp:Button ID="insertButton" runat="server" Text="Add group" CssClass="btn btn-primary" OnClick="insertButton_Click"/>
+            </div>
+      </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-default">
+         <div class="panel-heading">
+            <h3 class="panel-title">Delete group</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label">Select groups which want delete</label>
+                <asp:ListBox ID="groupsToDeleteListBox" runat="server" CssClass="form-control" SelectionMode="Multiple" Height="150px"></asp:ListBox>
+            </div>
+            <div class="form-actions text-right pal">
+                <asp:Button ID="deleteButton" runat="server" Text="Delete" CssClass="btn btn-primary" OnClick="deleteButton_Click"/>
+            </div>
+        </div>
+     </div>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Update group</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label">Select group to update</label>
+                <asp:DropDownList ID="groupsToUpdateDropDownList" runat="server" CssClass="form-control" OnSelectedIndexChanged="groupsToUpdateDropDownList_SelectedIndexChanged" AutoPostBack="true" EnableViewState="true"></asp:DropDownList>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Group code</label>
+                <asp:TextBox ID="groupCodeToUpdateTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Group title</label>
+                <asp:TextBox ID="groupTitleToUpdateTextBox" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <asp:Label ID="updateHelpLabel" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="form-actions text-right pal">
+                <asp:Button ID="updateButton" runat="server" Text="Update" CssClass="btn btn-primary" OnClick="updateButton_Click" />
+            </div>
+        </div>
+    </div>
+</div>
 </asp:Content>

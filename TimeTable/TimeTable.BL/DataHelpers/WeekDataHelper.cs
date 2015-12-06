@@ -52,9 +52,12 @@ namespace TimeTable.BL.DataHelpers
             this.selectAllCmd = Database.compileCommand(SELECT_ALL);
         }
 
-        public void insert(Week week)
+        public string insert(Week week)
         {
+            if (week.title == "" || string.IsNullOrWhiteSpace(week.title)) return "Week title can't be empty!";
+            if (isExists(week.title)) return "Week already exist!";
             insert(week.title);
+            return null;
         }
         private void insert(string title)
         {
@@ -63,9 +66,11 @@ namespace TimeTable.BL.DataHelpers
             insertCmd.ExecuteNonQuery();
         }
 
-        public void update(Week week)
+        public string update(Week week)
         {
+            if (week.title == "" || string.IsNullOrWhiteSpace(week.title)) return "Week title can't be empty!";
             update(week.id, week.title);
+            return null;
         }
         private void update(int id, string title)
         {
@@ -95,7 +100,7 @@ namespace TimeTable.BL.DataHelpers
         {
             this.selectCmd.Parameters.Clear();
             Week week = new Week();
-            this.selectCmd.Parameters.AddWithValue("@" + KEY_TITLE, KEY_TITLE);
+            this.selectCmd.Parameters.AddWithValue("@" + KEY_TITLE, title);
             using (SqlDataReader reader = this.selectCmd.ExecuteReader())
             {
                 if (reader.Read())

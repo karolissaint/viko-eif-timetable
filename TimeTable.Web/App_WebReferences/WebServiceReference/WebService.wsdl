@@ -24,6 +24,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="getGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getGroupResult" type="tns:Group" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertGroup">
         <s:complexType>
           <s:sequence>
@@ -49,7 +63,11 @@
         </s:complexType>
       </s:element>
       <s:element name="updateGroupResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="deleteGroup">
         <s:complexType>
@@ -82,6 +100,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="getSubGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSubGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSubGroupResult" type="tns:SubGroup" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertSubGroup">
         <s:complexType>
           <s:sequence>
@@ -90,7 +122,11 @@
         </s:complexType>
       </s:element>
       <s:element name="insertSubGroupResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertSubGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="updateSubGroup">
         <s:complexType>
@@ -101,7 +137,11 @@
         </s:complexType>
       </s:element>
       <s:element name="updateSubGroupResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateSubGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="deleteSubGroup">
         <s:complexType>
@@ -134,6 +174,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:element name="getWeek">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getWeekResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getWeekResult" type="tns:Week" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="insertWeek">
         <s:complexType>
           <s:sequence>
@@ -142,7 +196,11 @@
         </s:complexType>
       </s:element>
       <s:element name="insertWeekResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertWeekResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="updateWeek">
         <s:complexType>
@@ -153,7 +211,11 @@
         </s:complexType>
       </s:element>
       <s:element name="updateWeekResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateWeekResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
       <s:element name="deleteWeek">
         <s:complexType>
@@ -165,6 +227,158 @@
       <s:element name="deleteWeekResponse">
         <s:complexType />
       </s:element>
+      <s:element name="getCabinets">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCabinetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCabinetsResult" type="tns:ArrayOfCabinet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCabinet">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cabinet" nillable="true" type="tns:Cabinet" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cabinet">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCabinetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCabinetResult" type="tns:Cabinet" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertCabinetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertCabinetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateCabinetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateCabinetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteCabinet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteCabinetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLecturers">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLecturersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLecturersResult" type="tns:ArrayOfLecturer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLecturer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Lecturer" nillable="true" type="tns:Lecturer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Lecturer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getLecturer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLecturerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLecturerResult" type="tns:Lecturer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertLecturer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertLecturerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertLecturerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateLecturer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateLecturerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateLecturerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteLecturer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteLecturerResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="getGroupsSoapIn">
@@ -172,6 +386,12 @@
   </wsdl:message>
   <wsdl:message name="getGroupsSoapOut">
     <wsdl:part name="parameters" element="tns:getGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:getGroup" />
+  </wsdl:message>
+  <wsdl:message name="getGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:getGroupResponse" />
   </wsdl:message>
   <wsdl:message name="insertGroupSoapIn">
     <wsdl:part name="parameters" element="tns:insertGroup" />
@@ -197,6 +417,12 @@
   <wsdl:message name="getSubGroupsSoapOut">
     <wsdl:part name="parameters" element="tns:getSubGroupsResponse" />
   </wsdl:message>
+  <wsdl:message name="getSubGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:getSubGroup" />
+  </wsdl:message>
+  <wsdl:message name="getSubGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:getSubGroupResponse" />
+  </wsdl:message>
   <wsdl:message name="insertSubGroupSoapIn">
     <wsdl:part name="parameters" element="tns:insertSubGroup" />
   </wsdl:message>
@@ -221,6 +447,12 @@
   <wsdl:message name="getWeeksSoapOut">
     <wsdl:part name="parameters" element="tns:getWeeksResponse" />
   </wsdl:message>
+  <wsdl:message name="getWeekSoapIn">
+    <wsdl:part name="parameters" element="tns:getWeek" />
+  </wsdl:message>
+  <wsdl:message name="getWeekSoapOut">
+    <wsdl:part name="parameters" element="tns:getWeekResponse" />
+  </wsdl:message>
   <wsdl:message name="insertWeekSoapIn">
     <wsdl:part name="parameters" element="tns:insertWeek" />
   </wsdl:message>
@@ -239,10 +471,74 @@
   <wsdl:message name="deleteWeekSoapOut">
     <wsdl:part name="parameters" element="tns:deleteWeekResponse" />
   </wsdl:message>
+  <wsdl:message name="getCabinetsSoapIn">
+    <wsdl:part name="parameters" element="tns:getCabinets" />
+  </wsdl:message>
+  <wsdl:message name="getCabinetsSoapOut">
+    <wsdl:part name="parameters" element="tns:getCabinetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:getCabinet" />
+  </wsdl:message>
+  <wsdl:message name="getCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:getCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:insertCabinet" />
+  </wsdl:message>
+  <wsdl:message name="insertCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:insertCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:updateCabinet" />
+  </wsdl:message>
+  <wsdl:message name="updateCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:updateCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteCabinetSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteCabinet" />
+  </wsdl:message>
+  <wsdl:message name="deleteCabinetSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteCabinetResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLecturersSoapIn">
+    <wsdl:part name="parameters" element="tns:getLecturers" />
+  </wsdl:message>
+  <wsdl:message name="getLecturersSoapOut">
+    <wsdl:part name="parameters" element="tns:getLecturersResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLecturerSoapIn">
+    <wsdl:part name="parameters" element="tns:getLecturer" />
+  </wsdl:message>
+  <wsdl:message name="getLecturerSoapOut">
+    <wsdl:part name="parameters" element="tns:getLecturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertLecturerSoapIn">
+    <wsdl:part name="parameters" element="tns:insertLecturer" />
+  </wsdl:message>
+  <wsdl:message name="insertLecturerSoapOut">
+    <wsdl:part name="parameters" element="tns:insertLecturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateLecturerSoapIn">
+    <wsdl:part name="parameters" element="tns:updateLecturer" />
+  </wsdl:message>
+  <wsdl:message name="updateLecturerSoapOut">
+    <wsdl:part name="parameters" element="tns:updateLecturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteLecturerSoapIn">
+    <wsdl:part name="parameters" element="tns:deleteLecturer" />
+  </wsdl:message>
+  <wsdl:message name="deleteLecturerSoapOut">
+    <wsdl:part name="parameters" element="tns:deleteLecturerResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceSoap">
     <wsdl:operation name="getGroups">
       <wsdl:input message="tns:getGroupsSoapIn" />
       <wsdl:output message="tns:getGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getGroup">
+      <wsdl:input message="tns:getGroupSoapIn" />
+      <wsdl:output message="tns:getGroupSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="insertGroup">
       <wsdl:input message="tns:insertGroupSoapIn" />
@@ -260,6 +556,10 @@
       <wsdl:input message="tns:getSubGroupsSoapIn" />
       <wsdl:output message="tns:getSubGroupsSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getSubGroup">
+      <wsdl:input message="tns:getSubGroupSoapIn" />
+      <wsdl:output message="tns:getSubGroupSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="insertSubGroup">
       <wsdl:input message="tns:insertSubGroupSoapIn" />
       <wsdl:output message="tns:insertSubGroupSoapOut" />
@@ -276,6 +576,10 @@
       <wsdl:input message="tns:getWeeksSoapIn" />
       <wsdl:output message="tns:getWeeksSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getWeek">
+      <wsdl:input message="tns:getWeekSoapIn" />
+      <wsdl:output message="tns:getWeekSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="insertWeek">
       <wsdl:input message="tns:insertWeekSoapIn" />
       <wsdl:output message="tns:insertWeekSoapOut" />
@@ -288,11 +592,60 @@
       <wsdl:input message="tns:deleteWeekSoapIn" />
       <wsdl:output message="tns:deleteWeekSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="getCabinets">
+      <wsdl:input message="tns:getCabinetsSoapIn" />
+      <wsdl:output message="tns:getCabinetsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCabinet">
+      <wsdl:input message="tns:getCabinetSoapIn" />
+      <wsdl:output message="tns:getCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertCabinet">
+      <wsdl:input message="tns:insertCabinetSoapIn" />
+      <wsdl:output message="tns:insertCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateCabinet">
+      <wsdl:input message="tns:updateCabinetSoapIn" />
+      <wsdl:output message="tns:updateCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteCabinet">
+      <wsdl:input message="tns:deleteCabinetSoapIn" />
+      <wsdl:output message="tns:deleteCabinetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLecturers">
+      <wsdl:input message="tns:getLecturersSoapIn" />
+      <wsdl:output message="tns:getLecturersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLecturer">
+      <wsdl:input message="tns:getLecturerSoapIn" />
+      <wsdl:output message="tns:getLecturerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertLecturer">
+      <wsdl:input message="tns:insertLecturerSoapIn" />
+      <wsdl:output message="tns:insertLecturerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateLecturer">
+      <wsdl:input message="tns:updateLecturerSoapIn" />
+      <wsdl:output message="tns:updateLecturerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteLecturer">
+      <wsdl:input message="tns:deleteLecturerSoapIn" />
+      <wsdl:output message="tns:deleteLecturerSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getGroups">
       <soap:operation soapAction="http://localhost/getGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroup">
+      <soap:operation soapAction="http://localhost/getGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -336,6 +689,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getSubGroup">
+      <soap:operation soapAction="http://localhost/getSubGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertSubGroup">
       <soap:operation soapAction="http://localhost/insertSubGroup" style="document" />
       <wsdl:input>
@@ -372,6 +734,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getWeek">
+      <soap:operation soapAction="http://localhost/getWeek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertWeek">
       <soap:operation soapAction="http://localhost/insertWeek" style="document" />
       <wsdl:input>
@@ -399,11 +770,110 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getCabinets">
+      <soap:operation soapAction="http://localhost/getCabinets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCabinet">
+      <soap:operation soapAction="http://localhost/getCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCabinet">
+      <soap:operation soapAction="http://localhost/insertCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCabinet">
+      <soap:operation soapAction="http://localhost/updateCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCabinet">
+      <soap:operation soapAction="http://localhost/deleteCabinet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLecturers">
+      <soap:operation soapAction="http://localhost/getLecturers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLecturer">
+      <soap:operation soapAction="http://localhost/getLecturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertLecturer">
+      <soap:operation soapAction="http://localhost/insertLecturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLecturer">
+      <soap:operation soapAction="http://localhost/updateLecturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLecturer">
+      <soap:operation soapAction="http://localhost/deleteLecturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getGroups">
       <soap12:operation soapAction="http://localhost/getGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGroup">
+      <soap12:operation soapAction="http://localhost/getGroup" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -447,6 +917,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getSubGroup">
+      <soap12:operation soapAction="http://localhost/getSubGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertSubGroup">
       <soap12:operation soapAction="http://localhost/insertSubGroup" style="document" />
       <wsdl:input>
@@ -483,6 +962,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getWeek">
+      <soap12:operation soapAction="http://localhost/getWeek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="insertWeek">
       <soap12:operation soapAction="http://localhost/insertWeek" style="document" />
       <wsdl:input>
@@ -503,6 +991,96 @@
     </wsdl:operation>
     <wsdl:operation name="deleteWeek">
       <soap12:operation soapAction="http://localhost/deleteWeek" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCabinets">
+      <soap12:operation soapAction="http://localhost/getCabinets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCabinet">
+      <soap12:operation soapAction="http://localhost/getCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertCabinet">
+      <soap12:operation soapAction="http://localhost/insertCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCabinet">
+      <soap12:operation soapAction="http://localhost/updateCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteCabinet">
+      <soap12:operation soapAction="http://localhost/deleteCabinet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLecturers">
+      <soap12:operation soapAction="http://localhost/getLecturers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLecturer">
+      <soap12:operation soapAction="http://localhost/getLecturer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertLecturer">
+      <soap12:operation soapAction="http://localhost/insertLecturer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLecturer">
+      <soap12:operation soapAction="http://localhost/updateLecturer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteLecturer">
+      <soap12:operation soapAction="http://localhost/deleteLecturer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

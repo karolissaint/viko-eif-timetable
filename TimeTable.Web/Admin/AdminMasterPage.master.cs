@@ -12,12 +12,6 @@ public partial class Admin_AdminMasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         if (HttpContext.Current.User.Identity.IsAuthenticated)
-            UserName.Text = "Hello, " + Context.User.Identity.Name;
-    }
-
-    protected void LogOutButton_Click(object sender, EventArgs e)
-    {
-        FormsAuthentication.SignOut();
-        Response.Redirect("~/Default.aspx");
+            UserNameLabel.Text = "Hello, " + Context.User.Identity.Name;
     }
 }

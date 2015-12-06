@@ -7,4 +7,3 @@ C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\bin\Debug\Time
 C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\bin\Debug\TimeTable.BL.pdb
 C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\obj\Debug\TimeTable.BL.dll
 C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\obj\Debug\TimeTable.BL.pdb
-C:\Users\Arthur\Desktop\viko-eif-timetable\TimeTable\TimeTable.BL\obj\Debug\TimeTable.BL.csprojResolveAssemblyReference.cache
